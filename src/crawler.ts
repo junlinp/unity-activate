@@ -136,7 +136,7 @@ export abstract class Crawler {
         logger.debug(`waitForSelector: ${selector}`);
         await this.page.waitForTimeout(1000);
 
-        return await this.page.waitForSelector(selector, { timeout: 2000 });
+        return await this.page.waitForSelector(selector, { timeout: 10000 });
     }
 
     async waitAndClick(selector: string): Promise<void> {
