@@ -142,10 +142,10 @@ export class Activator extends Crawler {
 
 	if (await this.exists(selector_name)) {
                 console.log("Download Page has download button");
+        	await this.waitAndClick(selector_name);
         } else {
                 console.log("Download Page don't have download button")
         }
-        await this.waitAndClick(selector_name);
  
 
         const ulf = await this.waitForDownload(50000);
