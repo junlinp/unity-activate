@@ -138,7 +138,7 @@ export class Activator extends Crawler {
 	
 	// it seems that we need to click the same label
 	// twice to trigger downloading
-	selector_name = 'input[name="commit"][value="Download license file"]';
+	const selector_name = 'input[name="commit"][value="Download license file"]';
 
 	if (await this.exists(selector_name)) {
                 console.log("Download Page has download button");
