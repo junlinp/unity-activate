@@ -133,12 +133,20 @@ export class Activator extends Crawler {
 
         // Step: download ulf
         console.log("  > download ulf")
-        await this.waitForTimeout(500);
+        await this.waitForTimeout(5000);
         await this.waitAndClick('input[name="commit"]');
 	
 	// it seems that we need to click the same label
 	// twice to trigger downloading
-	await this.waitAndClick('input[name="commit"]');
+	selector_name = 'input[name="commit"][value="Download license file"]';
+
+	if (await this.exists(selector_name)) {
+                console.log("Download Page has download button");
+        } else {
+                console.log("Download Page don't have download button")
+        }
+        await this.waitAndClick(selector_name);
+ 
 
         const ulf = await this.waitForDownload(50000);
 
